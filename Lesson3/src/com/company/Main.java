@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //unit1();
+        unit1();
         unit2();
     }
 
