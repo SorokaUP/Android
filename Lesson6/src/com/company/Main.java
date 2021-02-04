@@ -11,32 +11,32 @@ public class Main {
 
     public static void main(String[] args) {
 		Cat cat1 = new Cat("Мурзик", 7);
-		cat1.Info();
-		cat1.Run(700);
-		cat1.Swim(10);
+		cat1.info();
+		cat1.run(700);
+		cat1.swim(10);
 		System.out.println("");
 		Cat cat2 = new Cat("Пушистик", 5);
-		cat2.Info();
-		cat2.Run(120);
-		cat2.Swim(0);
+		cat2.info();
+		cat2.run(120);
+		cat2.swim(0);
 
 		System.out.println("");
 		System.out.println("");
 
 		Dog dog1 = new Dog("Шарик", 5);
-		dog1.Info();
-		dog1.Run(380);
-		dog1.Swim(8);
+		dog1.info();
+		dog1.run(380);
+		dog1.swim(8);
 		System.out.println("");
 		Dog dog2 = new Dog("Анчар", 10);
-		dog2.Info();
-		dog2.Run(400);
-		dog2.Swim(40);
+		dog2.info();
+		dog2.run(400);
+		dog2.swim(40);
 		System.out.println("");
 		Dog dog3 = new Dog("Балбес", 3);
-		dog3.Info();
-		dog3.Run(0);
-		dog3.Swim(-1);
+		dog3.info();
+		dog3.run(0);
+		dog3.swim(-1);
 
 
 		System.out.println("");

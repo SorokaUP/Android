@@ -1,41 +1,38 @@
 package com.company;
 
-public abstract class Animal {
+public abstract class Animal
+{
     private String name;
     private int age;
-    private static int Total;
+    private static int total;
 
     public Animal(String name, int age)
     {
         this.name = name;
         this.age = age;
-        Total++;
+        total++;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void Run(int val)
+    public void run(int val)
     {
         System.out.println(name + " пробежал " + val + " метров.");
     }
-    public void Swim(int val)
+    public void swim(int val)
     {
         System.out.println(name + " проплыл " + val + " метров.");
     }
 
-    public void Info()
+    public void info()
     {
-        System.out.printf("%s (%d лет)\n", this.getName(), this.getAge());
+        System.out.printf("%s (%d лет)\n", this.getName(), this.age);
     }
 
     public static void getTotal()
     {
-        System.out.println("Всего животных было создано: " + Total);
+        System.out.println("Всего животных было создано: " + total);
     }
 }

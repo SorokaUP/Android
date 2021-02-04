@@ -1,24 +1,25 @@
 package com.company;
 
-public class Cat extends Animal {
-    private static int Total;
+public class Cat extends Animal
+{
+    private static int total;
 
     public Cat(String name, int age)
     {
         super(name, age);
-        Total++;
+        total++;
     }
 
     @Override
-    public void Run(int val) {
+    public void run(int val) {
         if (val > 200)
         {
-            super.Run(200);
+            super.run(200);
             System.out.println("И устал, так как не может бежать дольше...");
         }
         else if (val >= 0)
         {
-            super.Run(val);
+            super.run(val);
         }
         else
         {
@@ -27,10 +28,10 @@ public class Cat extends Animal {
     }
 
     @Override
-    public void Swim(int val) {
+    public void swim(int val) {
         if (val >= 0)
         {
-            super.Swim(0);
+            super.swim(0);
             System.out.printf("%s не стал мочить лапки, потом сохнуть долго...\n", this.getName());
         }
         else
@@ -41,6 +42,6 @@ public class Cat extends Animal {
 
     public static void getTotal()
     {
-        System.out.println("Всего котов было создано: " + Total);
+        System.out.println("Всего котов было создано: " + total);
     }
 }
