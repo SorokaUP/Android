@@ -1,52 +1,45 @@
 package com.company;
 
-public class Cat extends Animal
+public class Cat
 {
-    private static int total;
+    private String name;
+    private boolean satiety;
+    private int appetite;
 
-    public Cat(String name, int age, int appetite)
+    public Cat(String name, int appetite)
     {
-        super(name, age, appetite);
-        total++;
+        this.name = name;
+        this.appetite = appetite;
+        this.satiety = false;
     }
 
-    @Override
-    public void run(int val) {
-        if (val > 200)
+    public void eating(Plate plate)
+    {
+        if (this.satiety)
         {
-            super.run(200);
-            System.out.println("И устал, так как не может бежать дольше...");
+            System.out.println(this.name + " еще не голоден");
+            return;
         }
-        else if (val >= 0)
+
+        if (plate == null)
         {
-            super.run(val);
+            System.out.println(this.name + " крайне не доволен, что ему не дали тарелку с едой >.<");
         }
         else
         {
-            System.out.printf("У %s случился когнетивный диссонанс...\n", this.getName());
+            if (this.appetite <= 0)
+            {
+                System.out.println("Кажется, что " + this.name + " болен, нужно срочно к ветеринару!");
+                return;
+            }
+            System.out.println(this.name + " пробует кушать из тарелки " + plate.getName());
+            this.satiety = plate.eating(this.appetite);
+            System.out.println(this.name + ((this.satiety) ? " наелся и теперь сытый :)" : " не стал трогать и остался голодным :("));
         }
     }
 
-    @Override
-    public void swim(int val) {
-        if (val >= 0)
-        {
-            super.swim(0);
-            System.out.printf("%s не стал мочить лапки, потом сохнуть долго...\n", this.getName());
-        }
-        else
-        {
-            System.out.printf("У %s случился когнетивный диссонанс...\n", this.getName());
-        }
-    }
-
-    @Override
-    public void eating(Plate plate) {
-        super.eating(plate);
-    }
-
-    public static void getTotal()
+    public void infoSatiety()
     {
-        System.out.println("Всего котов было создано: " + total);
+        System.out.printf("%s, %s \n", this.name, this.satiety ? "сыт :)" : "голоден :(");
     }
 }

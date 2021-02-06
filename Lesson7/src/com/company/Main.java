@@ -16,14 +16,13 @@ public class Main {
 		plate.info();
 
     	Cat[] cats = {
-	    		new Cat("Мурзик", 10, 7),
-	    		new Cat("Маруся", 6, 6),
-	    		new Cat("Дымок", 14, 12),
-	    		new Cat("Хвостик", 4, 9),
-	    		new Cat("Рыжик", 8, 11)
+	    		new Cat("Мурзик", 7),
+	    		new Cat("Маруся", 6),
+	    		new Cat("Дымок", 12),
+	    		new Cat("Хвостик", 9),
+	    		new Cat("Рыжик", 11)
 		};
-		Cat.getTotal();
-		System.out.println("Они все голодны!");
+		System.out.println("В хату вошло " + cats.length + " котов. Они все голодны!");
 
 		for (Cat cat : cats) {
 			cat.eating(plate);
