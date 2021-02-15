@@ -31,7 +31,9 @@ public class Main {
         System.out.println(Arrays.toString(words));
         System.out.println("");
 
-
+        System.out.println("");
+        System.out.println("Вариант 1");
+        System.out.println("");
         Set res = new TreeSet(); // Выбран TreeSet из-за его возможности сортировки
         for (int i = 0; i < words.length; i++) {
             res.add(words[i]);
@@ -46,21 +48,43 @@ public class Main {
             }
             System.out.println(word + " = " + qnt);
         }
+
+
+
+        System.out.println("");
+        System.out.println("Вариант 2");
+        System.out.println("");
+        Map map = new HashMap();
+        for (int i = 0; i < words.length; i++) {
+            int qnt = (map.containsKey(words[i])) ? (int)map.get(words[i]) + 1 : 1;
+            map.put(words[i], qnt);
+        }
+        map.forEach((k,v) -> System.out.println(k + " = " + v));
     }
 
     public static void unit2()
     {
+        System.out.println("");
+        System.out.println("Вариант 1");
+        System.out.println("");
+
+        String[][] arr = {
+                {"Сорокин", "+7 (800) 700-80-00"},    // (!)
+                {"Васильев", "+7 (800) 700-88-80"},
+                {"Ванеев", "+7 (800) 757-68-90"},
+                {"Малышев", "+7 (800) 706-78-89"},    // (!!)
+                {"Сорокин", "+7 (845) 555-66-78"},    // (!) дубли
+                {"Сорокин", "+7 (845) 555-66-78"},    // (!) дубли
+                {"Селезнев", "+7 (833) 223-55-67"},
+                {"Чернышев", "+7 (800) 767-56-74"},
+                {"Малышев", "+7 (800) 704-56-00"},    // (!!)
+                {"Авдошин", "+7 (805) 566-78-71"}
+        };
+
         PhoneBook book = new PhoneBook();
-        book.add("Сорокин", "+7 (800) 700-80-00");    // (!)
-        book.add("Васильев", "+7 (800) 700-88-80");
-        book.add("Ванеев", "+7 (800) 757-68-90");
-        book.add("Малышев", "+7 (800) 706-78-89");    // (!!)
-        book.add("Сорокин", "+7 (845) 555-66-78");    // (!) дубли
-        book.add("Сорокин", "+7 (845) 555-66-78");    // (!) дубли
-        book.add("Селезнев", "+7 (833) 223-55-67");
-        book.add("Чернышев", "+7 (800) 767-56-74");
-        book.add("Малышев", "+7 (800) 704-56-00");    // (!!)
-        book.add("Авдошин", "+7 (805) 566-78-71");
+        for (int i = 0; i < arr.length; i++) {
+            book.add(arr[i][0], arr[i][1]);
+        }
 
         String lastName = "Сорокин";
         ArrayList phones = book.get(lastName);
@@ -76,5 +100,35 @@ public class Main {
                 System.out.println(phones.get(i).toString());
             }
         }
+
+
+
+        System.out.println("");
+        System.out.println("Вариант 2");
+        System.out.println("");
+        Map map = new HashMap();
+        for (int i = 0; i < arr.length; i++) {
+            mapAdd(map, arr[i][0], arr[i][1]);
+        }
+        if (!map.containsKey(lastName))
+        {
+            System.out.println("Фамилии " + lastName + " в справочнике не числятся");
+        }
+        else
+        {
+            Set phones2 = (Set)map.get(lastName);
+            System.out.println("По фамилии " + lastName + " в справочнике числятся следующие номера: ");
+            for (Object item : phones2.toArray())
+            {
+                System.out.println(item.toString());
+            }
+        }
+    }
+
+    public static void mapAdd(Map map, String lastName, String phone)
+    {
+        Set phones = (map.containsKey(lastName)) ? (Set)map.get(lastName) : new HashSet();
+        phones.add(phone);
+        map.put(lastName, phones);
     }
 }
