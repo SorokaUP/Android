@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
 
 public class Tunnel extends Stage {
     private Semaphore smp;
@@ -10,7 +11,7 @@ public class Tunnel extends Stage {
         this.smp = smp;
     }
     @Override
-    public void go(Car c) {
+    public void go(Car c, boolean isFinish) {
         try {
             try {
                 System.out.println(c.getName() + " готовится к этапу(ждет): " + description);
@@ -21,6 +22,8 @@ public class Tunnel extends Stage {
                 e.printStackTrace();
             } finally {
                 System.out.println(c.getName() + " закончил этап: " + description);
+                if (isFinish)
+                    c.win();
                 smp.release();
             }
         } catch (Exception e) {

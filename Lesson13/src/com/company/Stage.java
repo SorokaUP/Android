@@ -1,4 +1,5 @@
 package com.company;
+import java.util.concurrent.locks.Lock;
 
 public abstract class Stage {
     protected int length;
@@ -6,5 +7,5 @@ public abstract class Stage {
     public String getDescription() {
         return description;
     }
-    public abstract void go(Car c);
+    public abstract void go(Car c, boolean isFinish);
 }

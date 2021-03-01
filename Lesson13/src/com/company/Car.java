@@ -10,7 +10,7 @@ public class Car implements Runnable {
     private Race race;
     private int speed;
     private String name;
-    private CyclicBarrier cb;
+    private CyclicBarrier cbBarrier;
     private CountDownLatch cdlBegin;
     private CountDownLatch cdlFinish;
     private Lock lockWinner;
@@ -20,10 +20,10 @@ public class Car implements Runnable {
     public int getSpeed() {
         return speed;
     }
-    public Car(Race race, int speed, CyclicBarrier cb, CountDownLatch cdlBegin, CountDownLatch cdlFinish, Lock lockWinner) {
+    public Car(Race race, int speed, CyclicBarrier cbBarrier, CountDownLatch cdlBegin, CountDownLatch cdlFinish, Lock lockWinner) {
         this.race = race;
         this.speed = speed;
-        this.cb = cb;
+        this.cbBarrier = cbBarrier;
         this.cdlBegin = cdlBegin;
         this.cdlFinish = cdlFinish;
         CARS_COUNT++;
@@ -37,15 +37,21 @@ public class Car implements Runnable {
             System.out.println(this.name + " готовится");
             Thread.sleep(500 + (int)(Math.random() * 800));
             System.out.println(this.name + " готов");
-            cb.await();
+            cbBarrier.await();
             cdlBegin.countDown();
-            cb.await();
+            cbBarrier.await();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < race.getStages().size(); i++) {
-            race.getStages().get(i).go(this);
+        int qntRace = race.getStages().size();
+        for (int i = 0; i < qntRace; i++) {
+            race.getStages().get(i).go(this, i+1 == qntRace);
         }
+        cdlFinish.countDown();
+    }
+
+    public void win()
+    {
         try
         {
             lockWinner.lock();
@@ -58,6 +64,5 @@ public class Car implements Runnable {
         finally {
             lockWinner.unlock();
         }
-        cdlFinish.countDown();
     }
 }
