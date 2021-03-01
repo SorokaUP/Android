@@ -13,13 +13,14 @@ public class Car implements Runnable {
     private CyclicBarrier cb;
     private CountDownLatch cdlBegin;
     private CountDownLatch cdlFinish;
+    private Lock lockWinner;
     public String getName() {
         return name;
     }
     public int getSpeed() {
         return speed;
     }
-    public Car(Race race, int speed, CyclicBarrier cb, CountDownLatch cdlBegin, CountDownLatch cdlFinish) {
+    public Car(Race race, int speed, CyclicBarrier cb, CountDownLatch cdlBegin, CountDownLatch cdlFinish, Lock lockWinner) {
         this.race = race;
         this.speed = speed;
         this.cb = cb;
@@ -28,6 +29,7 @@ public class Car implements Runnable {
         CARS_COUNT++;
         this.name = "Участник #" + CARS_COUNT;
         this.IS_WIN = false;
+        this.lockWinner = lockWinner;
     }
     @Override
     public void run() {
@@ -44,10 +46,17 @@ public class Car implements Runnable {
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
         }
-        if (!IS_WIN)
+        try
         {
-            IS_WIN = true;
-            System.out.println(this.name + " - WIN");
+            lockWinner.lock();
+            if (!IS_WIN)
+            {
+                IS_WIN = true;
+                System.out.println(this.name + " - WIN");
+            }
+        }
+        finally {
+            lockWinner.unlock();
         }
         cdlFinish.countDown();
     }

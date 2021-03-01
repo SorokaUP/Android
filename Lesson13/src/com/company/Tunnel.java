@@ -3,10 +3,11 @@ package com.company;
 import java.util.concurrent.Semaphore;
 
 public class Tunnel extends Stage {
-    private Semaphore smp = new Semaphore(2);
-    public Tunnel() {
+    private Semaphore smp;
+    public Tunnel(Semaphore smp) {
         this.length = 80;
         this.description = "Тоннель " + length + " метров";
+        this.smp = smp;
     }
     @Override
     public void go(Car c) {
