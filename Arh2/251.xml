@@ -1,0 +1,13 @@
+<documents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    session_ui="38c96c9d-23e9-48ca-972e-fe2fb47338d4" version="1.35">
+    <refusal_sender action_id="251">
+        <subject_id>00000000123456</subject_id>
+        <operation_date>2021-03-26T14:50:00+03:00</operation_date>
+        <receiver_id>00000000123456</receiver_id>
+        <reason>Не верно переданы сведения</reason>
+        <order_details>
+            <sscc>452014310004103257</sscc>
+            <sscc>452014310004111818</sscc>
+        </order_details>
+    </refusal_sender>
+</documents>

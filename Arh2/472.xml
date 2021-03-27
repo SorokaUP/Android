@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documents session_ui="f02f4e19-00d4-46d2-b1b4-782cd637c8c9" version="1.35">
+    <agent_dispatch action_id="472">
+        <subject_id>00000000123456</subject_id>
+        <receiver_id>00000000123456</receiver_id>
+        <operation_date>2021-03-24T11:08:00+03:00</operation_date>
+        <doc_num>1</doc_num>
+        <doc_date>24.03.2021</doc_date>
+        <order_details>
+            <sgtin>04603191001786110043XHGXTYT</sgtin>
+        </order_details>
+    </agent_dispatch>
+</documents>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documents session_ui="131b82c2-bcf1-4815-bf3c-d1ae6322193d" version="1.35" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<move_order action_id="415">
+      <subject_id>00000000123456</subject_id>
+      <receiver_id>00000000123456</receiver_id>
+      <operation_date>2021-01-14T13:42:30+03:00</operation_date>
+      <doc_num>49178/4-21</doc_num>
+      <doc_date>12.01.2021</doc_date>
+      <turnover_type>1</turnover_type>
+      <source>2</source>
+      <contract_type>6</contract_type>
+      <contract_num>153/21 ДЗСЗ от 28.12.2020</contract_num>
+      <order_details>
+          <union><sgtin>04601808013382IJgyYogjnbZ6w</sgtin><cost>2818.29</cost><vat_value>256.21</vat_value></union>
+      </order_details>
+  </move_order>
+</documents>

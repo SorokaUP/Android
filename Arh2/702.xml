@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documents xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.35"
+    session_ui="96c3ccc8-7937-437e-9a5c-313b4e06d51c">
+    <posting action_id="702">
+        <subject_id>00000000123456</subject_id>
+        <shipper_info>
+            <inn>1234110679</inn>
+            <kpp>771501001</kpp>
+        </shipper_info>
+        <operation_date>2021-03-25T10:00:00+03:00</operation_date>
+        <doc_num>62-РН00301635</doc_num>
+        <doc_date>04.02.2021</doc_date>
+        <contract_type>1</contract_type>
+        <source>1</source>
+        <contract_num>1</contract_num>
+        <order_details>
+            <union><sgtin>04601669000590YIBC6JgOuTGMh</sgtin><cost>8.57</cost><vat_value>0.78</vat_value></union>
+            <union><sgtin>04601669000590L6vN6ckb5c5vm</sgtin><cost>8.57</cost><vat_value>0.78</vat_value></union>
+        </order_details>
+    </posting>
+</documents>
